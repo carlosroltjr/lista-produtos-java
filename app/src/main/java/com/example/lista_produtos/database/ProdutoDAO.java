@@ -50,4 +50,9 @@ public class ProdutoDAO {
 
         return produtos;
     }
+
+    public void excluir(Produto produto) {
+        dbGateway.getDb().delete(ProdutoEntity.TABLE_NAME,
+                ProdutoEntity._ID + " LIKE ?", new String[]{String.valueOf(produto.getId())});
+    }
 }

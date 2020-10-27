@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Produto produtoClicado = adapterProdutos.getItem(i);
+                ProdutoDAO produtoDAO = new ProdutoDAO(getBaseContext());
 
                 new AlertDialog.Builder(MainActivity.this).setIcon((android.R.drawable.ic_delete))
                         .setTitle("Confirmar exclusão")
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 adapterProdutos.remove(produtoClicado);
                                 adapterProdutos.notifyDataSetChanged();
+                                produtoDAO.excluir(produtoClicado);
                                 Toast.makeText(MainActivity.this, "Produto excluído", Toast.LENGTH_SHORT).show();
                             }
                         })
