@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 
 public class Produto implements Serializable {
+
     private int id;
     private String nome;
     private Float valor;
@@ -42,6 +43,6 @@ public class Produto implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return nome + " - " + valor;
+        return id + " - " + nome + " - " + valor;
     }
 }
