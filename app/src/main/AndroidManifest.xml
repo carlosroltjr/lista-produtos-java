@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Listaprodutos">
-        <activity android:name=".CadastroProdutoActivity"></activity>
+        <activity android:name=".CadastroCategoriaActivity"></activity>
+        <activity android:name=".ListarCategoriasActivity" />
+        <activity android:name=".CadastroProdutoActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

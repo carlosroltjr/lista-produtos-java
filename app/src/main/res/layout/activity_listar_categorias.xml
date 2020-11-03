@@ -5,25 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".ListarCategoriasActivity">
 
     <ListView
-        android:id="@+id/listView_produtos"
+        android:id="@+id/listView_categorias"
         android:layout_width="match_parent"
         android:layout_height="400dp" />
 
     <Button
-        android:id="@+id/btn_novoProduto"
+        android:id="@+id/btnNovaCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickNovoProduto"
-        android:text="Novo Produto" />
+        android:onClick="onClickNovaCategoria"
+        android:text="Nova Categoria" />
 
     <Button
-        android:id="@+id/btn_categoria"
+        android:id="@+id/btnProdutos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickCategorias"
-        android:text="Categorias" />
-
+        android:onClick="onClickProdutos"
+        android:text="Produtos" />
 </LinearLayout>
