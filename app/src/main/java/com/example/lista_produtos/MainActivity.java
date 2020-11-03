@@ -12,9 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.lista_produtos.database.DatabaseHelper;
 import com.example.lista_produtos.database.ProdutoDAO;
-import com.example.lista_produtos.database.entity.ProdutoEntity;
 import com.example.lista_produtos.modelo.Produto;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, produtoDAO.listar());
 
         listViewProdutos.setAdapter(adapterProdutos);
-
     }
 
     private void definirOnClickListenerListView() {
