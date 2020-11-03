@@ -4,7 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import com.example.lista_produtos.database.entity.CategoriaEntity;
 import com.example.lista_produtos.database.entity.ProdutoEntity;
+import com.example.lista_produtos.modelo.Categoria;
 import com.example.lista_produtos.modelo.Produto;
 
 import java.util.ArrayList;
@@ -13,7 +15,9 @@ import java.util.List;
 public class ProdutoDAO {
 
     private DbGateway dbGateway;
-    private final String SQL_LISTAR_TODOS = "SELECT * FROM " + ProdutoEntity.TABLE_NAME;
+    private final String SQL_LISTAR_TODOS = "SELECT produto._id, nome, valor, idcategoria, descricao FROM " +
+            ProdutoEntity.TABLE_NAME + " INNER JOIN " + CategoriaEntity.TABLE_NAME + " ON " +
+            ProdutoEntity.COLUMN_NAME_ID_CATEGORIA + " = " + CategoriaEntity.TABLE_NAME + "." + CategoriaEntity._ID;
 
     public ProdutoDAO(Context context) {
         dbGateway = DbGateway.getInstance(context);
@@ -24,6 +28,7 @@ public class ProdutoDAO {
 
         contentValues.put(ProdutoEntity.COLUMN_NAME_NOME, produto.getNome());
         contentValues.put(ProdutoEntity.COLUMN_NAME_VALOR, produto.getValor());
+        contentValues.put(ProdutoEntity.COLUMN_NAME_ID_CATEGORIA, produto.getCategoria().getId());
 
         if (produto.getId() > 0) {
             return dbGateway.getDb().update(ProdutoEntity.TABLE_NAME,
@@ -43,7 +48,11 @@ public class ProdutoDAO {
             int id = cursor.getInt(cursor.getColumnIndex(ProdutoEntity._ID));
             String nome = cursor.getString(cursor.getColumnIndex(ProdutoEntity.COLUMN_NAME_NOME));
             Float valor = cursor.getFloat(cursor.getColumnIndex(ProdutoEntity.COLUMN_NAME_VALOR));
-            produtos.add(new Produto(id, nome, valor));
+            int idCategoria = cursor.getInt(cursor.getColumnIndex(ProdutoEntity.COLUMN_NAME_ID_CATEGORIA));
+            String descricao = cursor.getString(cursor.getColumnIndex(CategoriaEntity.COLUMN_NAME_DESCRICAO));
+            Categoria categoria = new Categoria(idCategoria, descricao);
+
+            produtos.add(new Produto(id, nome, valor, categoria));
         }
 
         cursor.close();
