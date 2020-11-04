@@ -50,13 +50,20 @@ public class CadastroProdutoActivity extends AppCompatActivity {
             Produto produto = (Produto) intent.getExtras().get("produtoEdicao");
             editTextNome.setText(produto.getNome());
             editTextValor.setText(String.valueOf(produto.getValor()));
-            int posicaoCategoria = categoriasAdapter.getPosition(produto.getCategoria());
+            int posicaoCategoria = obterPosicaoCategoria(produto.getCategoria());
             spinnerCategorias.setSelection(posicaoCategoria);
-            editTextNome.setText(produto.getNome());
-            editTextValor.setText(String.valueOf(produto.getValor()));
-
             id = produto.getId();
         }
+    }
+
+    private int obterPosicaoCategoria(Categoria categoria) {
+        for (int posicao = 0; posicao < categoriasAdapter.getCount(); posicao++) {
+            if (categoriasAdapter.getItem(posicao).getId() == categoria.getId()) {
+                return posicao;
+            }
+        }
+
+        return 0;
     }
 
     public void onClickVoltar(View v) {

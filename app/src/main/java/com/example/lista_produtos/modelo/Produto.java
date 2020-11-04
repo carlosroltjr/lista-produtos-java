@@ -53,6 +53,6 @@ public class Produto implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return id + " - " + nome + " - " + valor;
+        return id + " - " + nome + " - " + valor + " - " + categoria;
     }
 }
