@@ -50,6 +50,7 @@ public class ProdutoDAO {
             Float valor = cursor.getFloat(cursor.getColumnIndex(ProdutoEntity.COLUMN_NAME_VALOR));
             int idCategoria = cursor.getInt(cursor.getColumnIndex(ProdutoEntity.COLUMN_NAME_ID_CATEGORIA));
             String descricao = cursor.getString(cursor.getColumnIndex(CategoriaEntity.COLUMN_NAME_DESCRICAO));
+
             Categoria categoria = new Categoria(idCategoria, descricao);
 
             produtos.add(new Produto(id, nome, valor, categoria));

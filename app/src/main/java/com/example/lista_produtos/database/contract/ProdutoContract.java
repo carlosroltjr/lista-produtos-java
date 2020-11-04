@@ -3,9 +3,9 @@ package com.example.lista_produtos.database.contract;
 import com.example.lista_produtos.database.entity.CategoriaEntity;
 import com.example.lista_produtos.database.entity.ProdutoEntity;
 
-public final class ProcutoContract {
+public final class ProdutoContract {
 
-    private ProcutoContract() {}
+    private ProdutoContract() {}
 
     public static final String criarTabela() {
         return "CREATE TABLE " + ProdutoEntity.TABLE_NAME + " (" +

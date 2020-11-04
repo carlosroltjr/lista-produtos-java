@@ -39,7 +39,7 @@ public class CategoriaDAO {
         Cursor cursor = dbGateway.getDb().rawQuery(SQL_LSITAR_TODOS, null);
 
         while (cursor.moveToNext()) {
-            int id = cursor.getInt(cursor.getColumnIndex(CategoriaEntity.COLUMN_NAME_DESCRICAO));
+            int id = cursor.getInt(cursor.getColumnIndex(CategoriaEntity._ID));
             String descricao = cursor.getString(cursor.getColumnIndex(CategoriaEntity.COLUMN_NAME_DESCRICAO));
             categorias.add(new Categoria(id, descricao));
         }

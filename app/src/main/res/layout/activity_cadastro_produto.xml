@@ -35,6 +35,17 @@
         android:hint="Digite aqui"
         android:inputType="numberDecimal" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categorias" />
+
+    <Spinner
+        android:id="@+id/spinner_categorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

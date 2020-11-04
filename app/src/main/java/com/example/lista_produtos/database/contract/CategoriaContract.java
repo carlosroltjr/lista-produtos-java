@@ -13,6 +13,6 @@ public final class CategoriaContract {
     }
 
     public static final String removerTabela() {
-        return "DORP TABLE IF EXISTS " + CategoriaEntity.TABLE_NAME;
+        return "DROP TABLE IF EXISTS " + CategoriaEntity.TABLE_NAME;
     }
 }
